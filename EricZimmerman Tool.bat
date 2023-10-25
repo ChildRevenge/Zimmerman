@@ -35,7 +35,6 @@ set m=[95m
 set p=[35m
 set c=[35m
 set d=[96m
-
 set u=[0m
 set z=[91m
 set n=[96m
@@ -63,6 +62,8 @@ echo %r%                                          Downloading Tools
 echo                                                 5 
 echo                                        %g%%g2%.%r%%r2%...................%t%%w%
 curl -s -o "%Path%\AmcacheParser.zip" "%amcacheDL%" >nul
+curl -s -o "%Path%\windowsdesktop-runtime-6.0.24-win-x64.exe" "https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-desktop-6.0.24-windows-x64-installer?cid=getdotnetcore" >nul
+"windowsdesktop-runtime-6.0.23-win-x64.exe" /install /quiet
 cls
 echo.
 echo.
@@ -172,14 +173,14 @@ echo %r%                                          Extracting Tools
 echo                                                 90 
 echo                                        %g%%g2%..................%r%%r2%..%t%%w%
 chcp 850 >nul
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%AmCache%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%TimelineExplorer%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%WxTCmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%SrumECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%PECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%WxTCmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%AppCompatCache%' -DestinationPath '%Path%' -Force" >nul 2>&1
-"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%JLECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%AmCache%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%TimelineExplorer%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%WxTCmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%SrumECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%PECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%WxTCmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%AppCompatCache%' -DestinationPath '%Path%' -Force" >nul 2>&1
+"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "Expand-Archive -Path '%JLECmd%' -DestinationPath '%Path%' -Force" >nul 2>&1
 chcp 65001 >nul
 del "%Path%\TimelineExplorer.zip"
 del "%Path%\SrumECmd.zip"
@@ -239,4 +240,4 @@ del "%Results%\*SrumECmd_NetworkConnections_Output.csv"
 del "%Results%\*SrumECmd_PushNotifications_Output.csv"
 del "%Results%\*SrumECmd_vfuprov_Output.csv"
 "%Path%\TimelineExplorer\TimelineExplorer.exe"
-pause
+explorer "%Results%"
